@@ -135,9 +135,9 @@ def seeder():
 
 @cli.command()
 def rsd():
-  if current_app.config.get('ENV') not in ('development', 'test', 'testing'):
-    print("ERROR: seed-db only allowed in development and testing env.")
-    return
+  # if current_app.config.get('ENV') not in ('development', 'test', 'testing'):
+  #   print("ERROR: seed-db only allowed in development and testing env.")
+  #   return
   recreate_db()
   seeder()
 
