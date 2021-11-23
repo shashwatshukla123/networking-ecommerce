@@ -23,6 +23,30 @@ user_json = [
 		"email": "john.doe@gmail.com",
 		"password": "hello_john",
 		"contact": "+1 (1234) 123 123"
+	},
+	{
+		"name": "James Bond",
+		"email": "james.bond@gmail.com",
+		"password": "hello_james",
+		"contact": "+37 (1234) 567 890"
+	},
+	{
+		"name": "Amy Brown",
+		"email": "amy.brown@gmail.com",
+		"password": "hello_amy",
+		"contact": "+83 (4456) 285 847"
+	},
+	{
+		"name": "John Wick",
+		"email": "john.wick@gmail.com",
+		"password": "hello_john",
+		"contact": "+49 (8712) 419 063"
+	},
+	{
+		"name": "Helene Sebi",
+		"email": "helene.sebi@gmail.com",
+		"password": "hello_helene",
+		"contact": "+33 (9331) 740 903"
 	}
 ]
 
