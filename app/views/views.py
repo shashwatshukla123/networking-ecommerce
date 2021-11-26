@@ -22,7 +22,7 @@ def dashboard():
     try:
         query = "select * from products;"
         products = db.engine.execute(query).all()
-        return render_template("/dashboard/dashboard.html", products=products)
+        return render_template("/dashboard/dashboard.html", products=products, user_id=session.get('user_id'))
     except Exception as e:
         return jsonify({
             "message": str(e),
@@ -32,8 +32,8 @@ def dashboard():
 @views.route('/profile')
 def profile():
     try:
-        user_email = session.get("email")
-        user_query = f"select * from users where email='{user_email}';"
+        user_id = request.args.get("id")
+        user_query = f"select * from users where id='{user_id}';"
         user = db.engine.execute(user_query).first()
         order_query = f"select p.image, p.name, o.amount from products p right join orders o on o.user_id={user['id']} and p.id=o.product_id;"
         orders = db.engine.execute(order_query).all()
@@ -41,7 +41,7 @@ def profile():
         tickets = db.engine.execute(ticket_query).all()
         address_query = f"select * from address where user_id='{user['id']}'"
         addresses = db.engine.execute(address_query).all()
-        return render_template("/profile/profile.html", user=user, orders=orders, addresses=addresses, tickets=tickets)
+        return render_template("/profile/profile.html", user=user, orders=orders, addresses=addresses, tickets=tickets, user_id=session.get("user_id"))
     except Exception as e:
         return jsonify({
             "message": str(e),
@@ -59,12 +59,9 @@ def order():
             }), 400
         query = f"select * from products where id={product_id};"
         product = db.engine.execute(query).first()
-        user_email = session.get("email")
-        user_query = f"select * from users where email='{user_email}';"
-        user = db.engine.execute(user_query).first()
-        address_query = f"select * from address where user_id='{user['id']}'"
+        address_query = f"select * from address where user_id='{session.get('user_id')}'"
         addresses = db.engine.execute(address_query).all() or []
-        return render_template("/order/order.html", product=product, addresses=addresses)
+        return render_template("/order/order.html", product=product, addresses=addresses, user_id=session.get('user_id'))
     except Exception as e:
         return jsonify({
             "message": str(e),
@@ -74,7 +71,7 @@ def order():
 @views.route("/help")
 def help_page():
     try:
-        return render_template("/help/help.html")
+        return render_template("/help/help.html", user_id=session.get('user_id'))
     except Exception as e:
         return jsonify({
             "message": str(e),

@@ -7,9 +7,6 @@ from flask_migrate import Migrate
 db = SQLAlchemy()
 migrate = Migrate()
 
-emails = []
-
-
 def create_app(script_info=None):
     # instantiate the app
     app = Flask(__name__)

@@ -25,6 +25,7 @@ def login():
         user = db.engine.execute(query).first()
         if user:
             session["email"] = email
+            session["user_id"] = user[0]
             return jsonify({
                 "status": "success",
                 "id": user[0]
@@ -44,6 +45,7 @@ def login():
 def logout():
     try:
         session["email"] = None
+        session["user_id"] = None
         return jsonify(
             {
                 "status": "success",
