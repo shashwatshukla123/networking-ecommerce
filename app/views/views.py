@@ -5,9 +5,12 @@ from app.models.users import Users
 from app.models.orders import Orders
 from app import db
 
+from flask_cors import cross_origin
+
 views = Blueprint('views', __name__, url_prefix="/")
 
 @views.route('/')
+@cross_origin()
 def login():
     try:
         return render_template("/login/login.html")
@@ -18,6 +21,7 @@ def login():
         }), 400
 
 @views.route('/dashboard')
+@cross_origin()
 def dashboard():
     try:
         query = "select * from products;"
@@ -30,6 +34,7 @@ def dashboard():
         }), 400
 
 @views.route('/profile')
+@cross_origin()
 def profile():
     try:
         user_id = request.args.get("id")
@@ -49,6 +54,7 @@ def profile():
         }), 400
 
 @views.route('/order')
+@cross_origin()
 def order():
     try:
         product_id = request.args.get("id")
@@ -69,6 +75,7 @@ def order():
         }), 400
 
 @views.route("/help")
+@cross_origin()
 def help_page():
     try:
         return render_template("/help/help.html", user_id=session.get('user_id'))
@@ -79,6 +86,7 @@ def help_page():
         }), 400
 
 @views.route("/editor")
+@cross_origin()
 def editor():
     try:
         return render_template("/editor/editor.html")

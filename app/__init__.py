@@ -1,5 +1,6 @@
 import os
 from flask import Flask, jsonify
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -10,10 +11,12 @@ migrate = Migrate()
 def create_app(script_info=None):
     # instantiate the app
     app = Flask(__name__)
+    cors = CORS(app)
 
     # set configz
     app_settings = os.getenv('APP_SETTINGS')
     app.config.from_object(app_settings)
+    app.config['CORS_HEADERS'] = 'Content-Type'
 
     # set up extensions
     db.init_app(app)
