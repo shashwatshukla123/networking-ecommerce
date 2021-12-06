@@ -27,26 +27,86 @@ user_json = [
 	{
 		"name": "James Bond",
 		"email": "james.bond@gmail.com",
-		"password": "hello_james",
+		"password": "bond007",
 		"contact": "+37 (1234) 567 890"
 	},
 	{
 		"name": "Amy Brown",
 		"email": "amy.brown@gmail.com",
-		"password": "hello_amy",
+		"password": "brownamy3",
 		"contact": "+83 (4456) 285 847"
 	},
 	{
 		"name": "John Wick",
 		"email": "john.wick@gmail.com",
-		"password": "hello_john",
+		"password": "johndog_1",
 		"contact": "+49 (8712) 419 063"
 	},
 	{
 		"name": "Helene Sebi",
 		"email": "helene.sebi@gmail.com",
-		"password": "hello_helene",
+		"password": "helenelove1",
 		"contact": "+33 (9331) 740 903"
+	},
+	{
+		"name": "Maria Anders",
+		"email": "maria.anders@gmail.com",
+		"password": "nebraska123",
+		"contact": "+1 202-918-2132"
+	},
+	{
+		"name": "Antonio Moreno",
+		"email": "antonio.moreno@gmail.com",
+		"password": "@ntonio",
+		"contact": "+355 69 142 4503"
+	},
+	{
+		"name": "Christina Berglund",
+		"email": "christina.berglund@gmail.com",
+		"password": "Christin3",
+		"contact": "+244 941 357 755"
+	},
+	{
+		"name": "Frédérique Citeaux",
+		"email": "frederique.citeaux@gmail.com",
+		"password": "citeauxfrederique@123",
+		"contact": "+297 290 4119"
+	},
+	{
+		"name": "Laurence Lebihans",
+		"email": "laurence.lebihans@gmail.com",
+		"password": "thaifoodie@7",
+		"contact": "+54 9 2954 73-5865"
+	},
+	{
+		"name": "Michael Scott",
+		"email": "michael.scott@gmail.com",
+		"password": "worldsbestbossever_",
+		"contact": "+61 493 338 894"
+	},
+	{
+		"name": "Victoria Ashworth",
+		"email": "victoria.ashworth@gmail.com",
+		"password": "vic@$hworth",
+		"contact": "+246 384 7383"
+	},
+	{
+		"name": "Francisco Chang",
+		"email": "francisco.chang@gmail.com",
+		"password": "chan6co",
+		"contact": "+357 99 203492"
+	},
+	{
+		"name": "Sven Ottlieb",
+		"email": "sven.ottilieb@gmail.com",
+		"password": "sven.ottlieb@1",
+		"contact": "+44 7781 699274"
+	},
+	{
+		"name": "Aria Cruz",
+		"email": "aria.cruz@gmail.com",
+		"password": "@ria_Cruz",
+		"contact": "+250 782 980 146"
 	}
 ]
 
