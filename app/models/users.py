@@ -19,6 +19,7 @@ class Users(db.Model):
 
     @staticmethod
     def create(name, email, password, contact):
+
         user_dict = dict(
             guid = str(uuid.uuid4()),
             name = name,
@@ -27,8 +28,10 @@ class Users(db.Model):
             contact = contact
         )
         user_obj = Users(**user_dict)
+
         db.session.add(user_obj)
         db.session.commit()
+
 
     def update(self, **details_dict):
         for k,v in details_dict.items():

@@ -239,7 +239,7 @@ def seeder():
 		csvreader = csv.reader(f)
 		for row in csvreader:
 			try:
-				OrderItems.create(int(row[0]), int(row[1]), int(row[1]), float(row[1]), int(row[1]))  
+				OrderItems.create(int(row[0]), int(row[1]), int(row[1]), float(row[1]), int(row[1]))
 			except:
 				pass
 

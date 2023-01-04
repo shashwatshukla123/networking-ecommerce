@@ -16,6 +16,7 @@ def login():
     try:
         email = request.json.get('email')
         password = request.json.get('password')
+
         query = f"(select * from users where email='{email}' and password='{password}');"
         if not all((email, password)):
             return jsonify({
@@ -23,6 +24,7 @@ def login():
                     'message': 'Both email and password are required!'
             }), 400
         user = db.engine.execute(query).first()
+
         if user:
             session["email"] = email
             session["user_id"] = user[0]
