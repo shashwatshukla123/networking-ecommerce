@@ -32,7 +32,12 @@ class TestConfig(BaseConfig):
 
 class ProductionConfig(BaseConfig):
   """Production configuration"""
-  SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
+  uri = os.getenv("DATABASE_URL")
+
+  if uri and uri.startswith('postgres://'):
+    uri = uri.replace("postgres://", "postgresql://")
+
+  SQLALCHEMY_DATABASE_URI = uri
 
 class StageConfig(BaseConfig):
   """Development configuration"""
