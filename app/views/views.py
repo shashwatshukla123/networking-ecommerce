@@ -98,16 +98,18 @@ def editor():
 
 
 
-@views.route("api/get-customer", methods=["GET"])
+@views.route("/api/get-customer", methods=["GET"])
 @cross_origin()
 def get_customer():
     try:
+        print(request.args.get("customer_id"))
         customer_id = request.args.get("customer_id")
         customer_query = f"select * from customer where id='{customer_id}';"
         return jsonify({
             "status": "success",
         }), 200
     except Exception as e:
+        print(request.args.get("customer_id"), "coming")
         return jsonify({
             "status": "error",
             "message": str(e)
