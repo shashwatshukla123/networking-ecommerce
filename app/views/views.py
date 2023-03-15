@@ -95,3 +95,20 @@ def editor():
             "message": str(e),
             "status": "error"
         }), 400
+
+
+
+@views.route("api/get-customer", methods=["GET"])
+@cross_origin()
+def get_customer():
+    try:
+        customer_id = request.args.get("customer_id")
+        customer_query = f"select * from customer where id='{customer_id}';"
+        return jsonify({
+            "status": "success",
+        }), 200
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 400
