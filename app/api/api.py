@@ -175,9 +175,10 @@ def get_customer():
         customer_id = request.args.get("id")
         customer_query = f"select * from customers where id='{customer_id}';"
         customer_data = db.engine.execute(customer_query).first()
+        print(customer_data)
         return jsonify({
             "status": "success",
-            "data" : customer_data
+           
         }), 200
     except Exception as e:
         return jsonify({
