@@ -98,12 +98,12 @@ def editor():
 
 
 
-@views.route("/get-customer")
+@views.route("/getCustomer")
 @cross_origin()
 def get_customer():
     try:
-        print(request.args.get("customer_id"))
-        customer_id = request.args.get("customer_id")
+        print(request.args.get("id"))
+        customer_id = request.args.get("id")
         customer_query = f"select * from customer where id='{customer_id}';"
         return jsonify({
             "status": "success",
