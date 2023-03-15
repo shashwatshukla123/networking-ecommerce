@@ -53,28 +53,6 @@ def profile():
             "status": "error"
         }), 400
 
-@views.route('/profile_')
-@cross_origin()
-def profile():
-    try:
-        user_id = request.args.get("id")
-        user_query = f"select * from users where id='{user_id}';"
-        user = db.engine.execute(user_query).first()
-        order_query = f"select p.image, p.name, o.amount from products p right join orders o on o.user_id={user['id']} and p.id=o.product_id;"
-        orders = db.engine.execute(order_query).all()
-        ticket_query = f"select * from tickets where user_id='{user['id']}';"
-        tickets = db.engine.execute(ticket_query).all()
-        address_query = f"select * from address where user_id='{user['id']}'"
-        addresses = db.engine.execute(address_query).all()
-        return render_template("/profile/profile.html", user=user, orders=orders, addresses=addresses, tickets=tickets, user_id=session.get("user_id"))
-    except Exception as e:
-        return jsonify({
-            "message": str(e),
-            "status": "error"
-        }), 400
-
-
-
 @views.route('/order')
 @cross_origin()
 def order():
