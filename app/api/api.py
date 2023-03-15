@@ -175,11 +175,16 @@ def get_customer():
         customer_id = request.args.get("id")
         customer_query = f"select * from customers where id='{customer_id}';"
         customer_data = db.engine.execute(customer_query).first()
-        print(customer_data)
-        return jsonify({
-            "status": "success",
-           
-        }), 200
+        if(customer_data):
+            return jsonify({
+                "status": "success",
+            
+            }), 200
+        else:
+            return jsonify({
+                "status" : "error",
+                "message" : "Customer not found"
+            }), 404
     except Exception as e:
         return jsonify({
             "status": "error",
