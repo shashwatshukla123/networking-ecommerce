@@ -169,13 +169,15 @@ def execute():
             "message": str(e)
         }), 400
 
-@api.route("/get-customer", methods=["GET"])
+@api.route("/get-customer")
 def get_customer():
     try:
-        customer_id = request.args.get("customer_id")
+        customer_id = request.args.get("id")
         customer_query = f"select * from customer where id='{customer_id}';"
+        customer_data = db.engine.execute(customer_query).first()
         return jsonify({
             "status": "success",
+            "data" : customer_data
         }), 200
     except Exception as e:
         return jsonify({
