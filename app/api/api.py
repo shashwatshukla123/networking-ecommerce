@@ -173,7 +173,7 @@ def execute():
 def get_customer():
     try:
         customer_id = request.args.get("id")
-        customer_query = f"select * from customer where id='{customer_id}';"
+        customer_query = f"select * from customers where id='{customer_id}';"
         customer_data = db.engine.execute(customer_query).first()
         return jsonify({
             "status": "success",
