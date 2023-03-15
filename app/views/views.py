@@ -98,7 +98,7 @@ def editor():
 
 
 
-@views.route("/api/get-customer", methods=["GET"])
+@views.route("/get-customer")
 @cross_origin()
 def get_customer():
     try:
