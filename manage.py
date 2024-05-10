@@ -17,6 +17,7 @@ from app.models.editor.order_item import OrderItems
 
 cli = FlaskGroup(create_app=create_app)
 
+# Contain the seeder data that is feeded by default during the development.
 user_json = [
 	{
 		"name": "John Doe",
@@ -190,11 +191,13 @@ product_json = [
 	}
 ]
 
+# Used to reset the database.
 def recreate_db():
 	db.drop_all()
 	db.create_all()
 	db.session.commit()
 
+# Used to feed new data in the database. 
 def seeder():
 	for user in user_json:
 		Users.create(user.get("name"), user.get("email"), user.get("password"), user.get("contact"))
@@ -243,6 +246,7 @@ def seeder():
 			except:
 				pass
 
+# It contains both the functions above so that they can execute simultaneously.
 @cli.command()
 def rsd():
 	# if current_app.config.get('ENV') not in ('development', 'test', 'testing'):
@@ -251,5 +255,6 @@ def rsd():
 	recreate_db()
 	seeder()
 
+# Function to run the main loop.
 if __name__ == '__main__':
 	cli()
