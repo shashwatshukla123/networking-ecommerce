@@ -1,3 +1,4 @@
+# (api.py) THIS FILE DISPLAY THE ENTITIES THAT DISPLAY IN THE BACKEND VIEW.
 from flask import Blueprint, jsonify, request, session, redirect, url_for, send_file
 from app.models.users import Users
 from app.models.address import Address
@@ -11,6 +12,7 @@ api = Blueprint('api', __name__, url_prefix="/api")
 
 UPLOAD_FOLDER = os.path.abspath("app/static/attachments")
 
+# creating login function.
 @api.route('/login', methods=['POST'])
 def login():
     try:
@@ -43,6 +45,7 @@ def login():
             "message": str(e)
         }), 400
 
+# creating logout function.
 @api.route("/logout", methods=["POST"])
 def logout():
     try:
@@ -59,6 +62,7 @@ def logout():
             "message": str(e)
         }), 400
 
+# creating add_address function for add_address button.
 @api.route("/add-address", methods=["POST"])
 def add_address():
     try:
@@ -82,6 +86,7 @@ def add_address():
             "message": str(e)
         }), 400
 
+# creating login function for create_order button.
 @api.route("/create-order", methods=["POST"])
 def create_order():
     try:
@@ -103,6 +108,7 @@ def create_order():
             "message": str(e)
         }), 400
 
+# creating login function for submit_help button.
 @api.route("/submit-help", methods=["POST"])
 def submit_help():
     title = request.form.get("title")
@@ -121,10 +127,12 @@ def submit_help():
             }, 201
         )
 
+# creating login function for download button.
 @api.route("/download/<path:filename>")
 def download(filename):
     return send_file(os.path.join(UPLOAD_FOLDER, filename), as_attachment=True)
 
+# creating login function for search_order button.
 @api.route("/search-order")
 def search_order():
     order_id = request.args.get("order_id")
@@ -142,6 +150,7 @@ def search_order():
         "orders": orders
     }), 200
 
+# Creating execute function to check and execute creditionals in backened.
 @api.route("/execute", methods=["POST"])
 def execute():
     try:
@@ -169,6 +178,7 @@ def execute():
             "message": str(e)
         }), 400
 
+# creating get_customer function for helping other functions.
 @api.route("/get-customer")
 def get_customer():
     try:
