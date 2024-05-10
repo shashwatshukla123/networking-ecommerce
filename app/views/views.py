@@ -1,3 +1,4 @@
+# (views.py) THIS FILE DISPLAY THE ENTITIES THAT DISPLAY IN THE FRONTED VIEW.
 from flask import Blueprint, render_template, session, redirect, url_for, request, jsonify
 from app.models.products import Products
 from app.models.address import Address
