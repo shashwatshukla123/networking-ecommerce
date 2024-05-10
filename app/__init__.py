@@ -1,8 +1,9 @@
+# init.py is use to run the file as a main file inside the folder.
 import os
 from flask import Flask, jsonify
-from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from flask_cors import CORS # helps to check cross-orgin.
+from flask_sqlalchemy import SQLAlchemy # helps in running SQL files.
+from flask_migrate import Migrate # hepls to migrate databases.
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -12,6 +13,7 @@ db = SQLAlchemy()
 
 migrate = Migrate()
 
+# Creating the main function with help of CORS AND MIGRATE.
 def create_app(script_info=None):
 
     # instantiate the app
@@ -37,6 +39,7 @@ def create_app(script_info=None):
     app.register_blueprint(views)
     app.register_blueprint(api)
 
+# To handle error with error address.    
     @app.errorhandler(400)
     def bad_request(e):
         return jsonify({
