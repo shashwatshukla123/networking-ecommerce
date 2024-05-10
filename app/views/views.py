@@ -9,6 +9,7 @@ from flask_cors import cross_origin
 
 views = Blueprint('views', __name__, url_prefix="/")
 
+#Creating login function to redirect to the login.html
 @views.route('/')
 @cross_origin()
 def login():
@@ -20,6 +21,7 @@ def login():
             "status": "error"
         }), 400
 
+#Creating dashboard function to redirect to the dashboard.html
 @views.route('/dashboard')
 @cross_origin()
 def dashboard():
@@ -33,6 +35,7 @@ def dashboard():
             "status": "error"
         }), 400
 
+# this function contain the part of the profile page 📄.
 @views.route('/profile')
 @cross_origin()
 def profile():
@@ -53,6 +56,7 @@ def profile():
             "status": "error"
         }), 400
 
+# Order function includes ordered product details that to be displayed on the screen. 
 @views.route('/order')
 @cross_origin()
 def order():
@@ -74,6 +78,7 @@ def order():
             "status": "error"
         }), 400
 
+# This function redirect the value to the corresponding page.
 @views.route("/help")
 @cross_origin()
 def help_page():
@@ -85,6 +90,7 @@ def help_page():
             "status": "error"
         }), 400
 
+# This function redirect the value to the corresponding page.
 @views.route("/editor")
 @cross_origin()
 def editor():
