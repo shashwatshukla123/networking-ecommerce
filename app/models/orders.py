@@ -1,3 +1,4 @@
+# This file represent the presentable value of the entity wheather it is triggered or not.
 from app import db
 import uuid
 
